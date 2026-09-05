@@ -8,20 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./src/style.css" />
   </head>
   <body>
-    <div id="app">
-      <main class="loading-screen" aria-live="polite">
-        <span>🍳</span>
-        <h1>Mijn Keuken</h1>
-        <p>Je persoonlijke digitale keuken wordt geladen…</p>
-      </main>
-    </div>
-    <noscript>
-      <p class="noscript-message">Mijn Keuken heeft JavaScript nodig om recepten en voorraad te tonen.</p>
-    </noscript>
-    <!-- Relative paths let this app work from a GitHub Pages project subfolder. -->
-    <script defer src="./src/main.js"></script>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
