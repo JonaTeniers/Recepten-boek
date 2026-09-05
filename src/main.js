@@ -1,5 +1,3 @@
-import './style.css';
-
 const seedRecipes = [
   { id: 1, title: 'Romige pasta met tomaat', emoji: '🍝', color: 'peach', category: 'Pasta', time: '25 min', servings: 2, favorite: true, description: 'Een snelle, romige pasta voor doordeweeks.', ingredients: [{ name: 'Olijfolie', quantity: 100, unit: 'ml' }, { name: 'Pasta', quantity: 300, unit: 'g' }, { name: 'Tomaten', quantity: 2, unit: 'stuks' }, { name: 'Parmezaanse kaas', quantity: 50, unit: 'g' }], steps: ['Breng ruim water met een snuf zout aan de kook.', 'Kook de pasta beetgaar volgens de verpakking.', 'Bak de tomaten kort in de olijfolie en meng met de pasta.', 'Werk af met Parmezaanse kaas.'] },
   { id: 2, title: 'Citroen risotto', emoji: '🍋', color: 'yellow', category: 'Eenpansgerecht', time: '40 min', servings: 4, favorite: false, description: 'Zacht, fris en precies goed voor een gezellige avond.', ingredients: [{ name: 'Risottorijst', quantity: 300, unit: 'g' }, { name: 'Citroen', quantity: 1, unit: 'stuk' }, { name: 'Boter', quantity: 40, unit: 'g' }, { name: 'Bouillon', quantity: 750, unit: 'ml' }], steps: ['Verwarm de bouillon in een pan.', 'Fruit de rijst glazig in boter.', 'Voeg beetje bij beetje bouillon toe en roer regelmatig.', 'Meng de citroenrasp erdoor en serveer warm.'] },
@@ -17,7 +15,9 @@ const seedInventory = [
 ];
 
 const categories = [['🍰', 'Gebak'], ['🍝', 'Pasta'], ['🥘', 'Eenpans'], ['🍲', 'Soepen'], ['🍖', 'Vlees'], ['🐟', 'Vis'], ['🥗', 'Salades'], ['🥖', 'Brood'], ['🍳', 'Ontbijt'], ['🍮', 'Desserts'], ['🥫', 'Sauzen'], ['🥤', 'Dranken']];
-let state = { page: 'home', recipes: structuredClone(seedRecipes), inventory: structuredClone(seedInventory), shopping: [], selected: [], activeRecipe: null, query: '', toast: '' };
+// JSON cloning also works in older mobile browsers where structuredClone is unavailable.
+const clone = (value) => JSON.parse(JSON.stringify(value));
+let state = { page: 'home', recipes: clone(seedRecipes), inventory: clone(seedInventory), shopping: [], selected: [], activeRecipe: null, query: '', toast: '' };
 
 const app = document.querySelector('#app');
 const fmt = (n) => Number.isInteger(n) ? n : String(n).replace('.', ',');
